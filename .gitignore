@@ -1,0 +1,6 @@
+TestResults/
+obj/
+bin/
+.vs/
+GameTest/bin/
+GameTest/obj/

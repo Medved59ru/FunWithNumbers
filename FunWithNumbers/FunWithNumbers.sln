@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31205.134
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FunWithNumbers", "FunWithNumbers.csproj", "{CF6070AE-6674-4C5E-93E9-628BFD93EFC2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameTest", "..\GameTest\GameTest.csproj", "{C210D738-DE5F-491F-B2AE-5844B926CCB5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CF6070AE-6674-4C5E-93E9-628BFD93EFC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF6070AE-6674-4C5E-93E9-628BFD93EFC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF6070AE-6674-4C5E-93E9-628BFD93EFC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF6070AE-6674-4C5E-93E9-628BFD93EFC2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C210D738-DE5F-491F-B2AE-5844B926CCB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C210D738-DE5F-491F-B2AE-5844B926CCB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C210D738-DE5F-491F-B2AE-5844B926CCB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C210D738-DE5F-491F-B2AE-5844B926CCB5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0F3EE1F8-3906-4862-A3F6-92B2987310EE}
+	EndGlobalSection
+EndGlobal
