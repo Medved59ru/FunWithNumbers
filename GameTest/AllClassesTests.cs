@@ -30,8 +30,7 @@ namespace GameTest
             int userNumber2 = 100;
             int userNumber3 = 50;
 
-            Game game = new Game(50);
-                       
+            Game game = new Game(50);  
 
             var result1 = game.CompareComputerNumberWith(userNumber1);
             var result2 = game.CompareComputerNumberWith(userNumber2);
@@ -40,6 +39,22 @@ namespace GameTest
             Assert.AreEqual("ÁÎËÜØÅ...", result1);
             Assert.AreEqual("ÌÅÍÜØÅ...", result2);
             Assert.AreEqual("ÂÅĞÍÎ!!!", result3);
+        }
+
+        [TestMethod]
+        public void CheckMessageTest()
+        {
+            string message1 = "ÂÅĞÍÎ!!!";
+            string message2 = "Èíîå ñëîâî";
+
+            Game game = new Game();
+
+            var result1 = game.CheckThe(message1);
+            var result2 = game.CheckThe(message2);
+
+            Assert.IsTrue(result1);
+            Assert.IsFalse(result2);
+
         }
     }
 }

@@ -52,7 +52,7 @@ namespace FunWithNumbers
             return stopTheGame;
         }
 
-        public static int GetGoalNumber()
+        int GetGoalNumber()
         {
             Random rnd = new Random();
             return rnd.Next(0, 101);
