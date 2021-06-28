@@ -5,17 +5,15 @@ namespace FunWithNumbers
 {
     public class Game
     {
-        private int _computerNumber;
+         private int _computerNumber;
+        private static bool stopTheGame;
+        Random rnd = new Random();
 
-
-        private int ComputerNumber
-        {
-            get => _computerNumber;
-            set => _computerNumber = value;
-        }
-
+       
         public Game()
-        {}
+        {
+            _computerNumber = rnd.Next(0, 101);
+        }
 
         public Game (int ComputerNumber)
         {
@@ -24,57 +22,39 @@ namespace FunWithNumbers
 
         public string CompareComputerNumberWith(int userNumber)
         {
+            
             string message = "";
 
-            if (ComputerNumber == userNumber)
+            if (_computerNumber == userNumber)
             {
-                message = "ВЕРНО!!!";
+                message = MessageEnum.ВЕРНО.ToString();
+                stopTheGame = true;
             }
-            else if (ComputerNumber < userNumber)
+            else if (_computerNumber < userNumber)
             {
-                message = "МЕНЬШЕ...";
+                message = MessageEnum.МЕНЬШЕ.ToString();
             }
             else
             {
-                message = "БОЛЬШЕ...";
+                message = MessageEnum.БОЛЬШЕ.ToString();
             }
             return message;
         }
 
-        public bool CheckThe(string messsage)
+               
+        public void Play()
         {
-            bool stopTheGame = false;
-            if (messsage == "ВЕРНО!!!")
-            {
-                stopTheGame = true;
-            }
-
-            return stopTheGame;
-        }
-
-        int GetGoalNumber()
-        {
-            Random rnd = new Random();
-            return rnd.Next(0, 101);
-        }
-
-        public void Play(int userNumber)
-        {
-            ComputerNumber = GetGoalNumber();
+            int userNumber = InputOutput.GetFromConsoleThe();
 
             string message = CompareComputerNumberWith(userNumber);
 
             InputOutput.Print(message);
 
-            bool stopTheGame = CheckThe(message);
-
             while (!stopTheGame)
             {
-                InputOutput.GreetingMessage();
-                userNumber = InputOutput.GetFromConsoleThe(Console.ReadLine());
+                userNumber = InputOutput.GetFromConsoleThe();
                 message = CompareComputerNumberWith(userNumber);
                 InputOutput.Print(message);
-                stopTheGame = CheckThe(message);
 
                 if (stopTheGame == true)
                 {
@@ -82,12 +62,11 @@ namespace FunWithNumbers
 
                     if (Console.ReadLine().ToLowerInvariant() == "y")
                     {
+                        _computerNumber = rnd.Next(0, 101);
                         stopTheGame = false;
-                        ComputerNumber = GetGoalNumber();
                     }
 
                 }
-
             }
 
         }
