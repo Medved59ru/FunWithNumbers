@@ -6,9 +6,9 @@ namespace FunWithNumbers
 {
         enum MessageEnum
         {
-            ВЕРНО,
-            МЕНЬШЕ,
-            БОЛЬШЕ
+            CORRECT,
+            LESS,
+            MORE
         }
    
 }

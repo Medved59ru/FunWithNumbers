@@ -1,18 +1,27 @@
 ﻿using System;
-
+using System.Collections.Generic;
 
 namespace FunWithNumbers
 {
     public class Game
     {
-         private int _computerNumber;
-        private static bool stopTheGame;
-        Random rnd = new Random();
+        private int _computerNumber;
+        private  bool stopTheGame;
+        private Random rnd = new Random();
+        public static int GameProperty;
 
-       
+        Dictionary<MessageEnum, string> messageForPrint = new Dictionary<MessageEnum, string>
+        {
+            [MessageEnum.CORRECT] = "ВЕРНО",
+            [MessageEnum.LESS] = "МЕНЬШЕ",
+            [MessageEnum.MORE] = "БОЛЬШЕ"
+        };
+        
+
         public Game()
         {
-            _computerNumber = rnd.Next(0, 101);
+            _computerNumber = GetRndNumber(0,100);
+            GameProperty = _computerNumber;
         }
 
         public Game (int ComputerNumber)
@@ -27,16 +36,16 @@ namespace FunWithNumbers
 
             if (_computerNumber == userNumber)
             {
-                message = MessageEnum.ВЕРНО.ToString();
+                message = messageForPrint[MessageEnum.CORRECT];   
                 stopTheGame = true;
             }
             else if (_computerNumber < userNumber)
             {
-                message = MessageEnum.МЕНЬШЕ.ToString();
+                message = messageForPrint[MessageEnum.LESS];
             }
             else
             {
-                message = MessageEnum.БОЛЬШЕ.ToString();
+                message = messageForPrint[MessageEnum.MORE];
             }
             return message;
         }
@@ -62,13 +71,18 @@ namespace FunWithNumbers
 
                     if (Console.ReadLine().ToLowerInvariant() == "y")
                     {
-                        _computerNumber = rnd.Next(0, 101);
+                        _computerNumber = GetRndNumber(0,100);
                         stopTheGame = false;
                     }
 
                 }
             }
 
+        }
+
+        private int GetRndNumber(int min, int max)
+        {
+            return rnd.Next(min, max + 1);
         }
     }
 }

@@ -27,5 +27,24 @@ namespace GameTest
             Assert.AreEqual("бепмн", result3);
         }
 
+        [TestMethod]
+        public void PropertyTest()
+        {
+            for (int i=0; i <= 100; i++)
+            {
+                var game = new Game();
+                var result = Game.GameProperty;
+                bool checkingResult = false;
+
+                if (result >= 0 && result <= 100)
+                    checkingResult = true;
+               
+                Assert.IsTrue(checkingResult);
+
+               
+            }
+            
+
+        }
     }
 }
