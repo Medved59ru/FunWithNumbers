@@ -7,9 +7,7 @@ namespace GameTest
     [TestClass]
     public class AllClassesTests
     {
-       
-
-        [TestMethod]
+       [TestMethod]
         public void CompareTest()
         {
             int userNumber1 = 0;
@@ -41,10 +39,7 @@ namespace GameTest
                
                 Assert.IsTrue(checkingResult);
 
-               
             }
-            
-
         }
     }
 }

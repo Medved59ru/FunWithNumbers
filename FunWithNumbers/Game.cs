@@ -31,8 +31,7 @@ namespace FunWithNumbers
 
         public string CompareComputerNumberWith(int userNumber)
         {
-            
-            string message = "";
+           string message = "";
 
             if (_computerNumber == userNumber)
             {
@@ -50,15 +49,12 @@ namespace FunWithNumbers
             return message;
         }
 
-               
         public void Play()
         {
             int userNumber = InputOutput.GetFromConsoleThe();
-
             string message = CompareComputerNumberWith(userNumber);
 
             InputOutput.Print(message);
-
             while (!stopTheGame)
             {
                 userNumber = InputOutput.GetFromConsoleThe();
