@@ -1,21 +1,28 @@
 ﻿using System;
-
+using System.Collections.Generic;
 
 namespace FunWithNumbers
 {
     public class Game
     {
         private int _computerNumber;
+        private  bool stopTheGame;
+        private Random rnd = new Random();
+        public static int GameProperty;
 
-
-        private int ComputerNumber
+        Dictionary<MessageEnum, string> messageForPrint = new Dictionary<MessageEnum, string>
         {
-            get => _computerNumber;
-            set => _computerNumber = value;
-        }
+            [MessageEnum.CORRECT] = "ВЕРНО",
+            [MessageEnum.LESS] = "МЕНЬШЕ",
+            [MessageEnum.MORE] = "БОЛЬШЕ"
+        };
+        
 
         public Game()
-        {}
+        {
+            _computerNumber = GetRndNumber(0,100);
+            GameProperty = _computerNumber;
+        }
 
         public Game (int ComputerNumber)
         {
@@ -24,57 +31,39 @@ namespace FunWithNumbers
 
         public string CompareComputerNumberWith(int userNumber)
         {
+            
             string message = "";
 
-            if (ComputerNumber == userNumber)
+            if (_computerNumber == userNumber)
             {
-                message = "ВЕРНО!!!";
+                message = messageForPrint[MessageEnum.CORRECT];   
+                stopTheGame = true;
             }
-            else if (ComputerNumber < userNumber)
+            else if (_computerNumber < userNumber)
             {
-                message = "МЕНЬШЕ...";
+                message = messageForPrint[MessageEnum.LESS];
             }
             else
             {
-                message = "БОЛЬШЕ...";
+                message = messageForPrint[MessageEnum.MORE];
             }
             return message;
         }
 
-        public bool CheckThe(string messsage)
+               
+        public void Play()
         {
-            bool stopTheGame = false;
-            if (messsage == "ВЕРНО!!!")
-            {
-                stopTheGame = true;
-            }
-
-            return stopTheGame;
-        }
-
-        public static int GetGoalNumber()
-        {
-            Random rnd = new Random();
-            return rnd.Next(0, 101);
-        }
-
-        public void Play(int userNumber)
-        {
-            ComputerNumber = GetGoalNumber();
+            int userNumber = InputOutput.GetFromConsoleThe();
 
             string message = CompareComputerNumberWith(userNumber);
 
             InputOutput.Print(message);
 
-            bool stopTheGame = CheckThe(message);
-
             while (!stopTheGame)
             {
-                InputOutput.GreetingMessage();
-                userNumber = InputOutput.GetFromConsoleThe(Console.ReadLine());
+                userNumber = InputOutput.GetFromConsoleThe();
                 message = CompareComputerNumberWith(userNumber);
                 InputOutput.Print(message);
-                stopTheGame = CheckThe(message);
 
                 if (stopTheGame == true)
                 {
@@ -82,14 +71,18 @@ namespace FunWithNumbers
 
                     if (Console.ReadLine().ToLowerInvariant() == "y")
                     {
+                        _computerNumber = GetRndNumber(0,100);
                         stopTheGame = false;
-                        ComputerNumber = GetGoalNumber();
                     }
 
                 }
-
             }
 
+        }
+
+        private int GetRndNumber(int min, int max)
+        {
+            return rnd.Next(min, max + 1);
         }
     }
 }

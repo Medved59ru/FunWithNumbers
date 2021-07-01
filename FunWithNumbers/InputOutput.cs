@@ -16,9 +16,13 @@ namespace FunWithNumbers
         }
       
 
-        public static int GetFromConsoleThe(string number)
+        public static int GetFromConsoleThe()
         {
+            GreetingMessage();
+
+            string number = Console.ReadLine();
             int userNumber;
+
             while (true)
             {
                

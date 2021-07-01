@@ -12,10 +12,7 @@ namespace FunWithNumbers
             
             Game game = new Game();
 
-            InputOutput.GreetingMessage();
-            int userNumber = InputOutput.GetFromConsoleThe(Console.ReadLine());
-
-            game.Play(userNumber);
+            game.Play();
         }
     }
 }
